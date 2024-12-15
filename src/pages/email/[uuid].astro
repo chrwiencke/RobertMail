@@ -10,7 +10,7 @@ const tempEmail = uuid+"@donotshow.me"
 <Layout>
     <main class="min-h-screen bg-base-200 flex flex-col items-center justify-center p-4 gap-4">
 
-        <h1 class="text-center text-lg font-bold">{tempEmail}</h1>
+        <h1 class="text-center text-lg font-bold bg-slate-500 rounded-md p-2">{tempEmail}</h1>
 
         <div class="refesh-htmx-button">
             <button class="btn btn-primary" hx-get={`/api/${uuid}`} hx-trigger="click" hx-target="#email-content" hx-swap="innerHTML">
@@ -18,7 +18,7 @@ const tempEmail = uuid+"@donotshow.me"
             </button>
         </div>
 
-        <div id="email-content" class="w-full max-w-[80%] max-h-[400px] overflow-auto border border-gray-300 p-4 bg-white rounded"></div>
+        <div id="email-content" ></div>
 
     </main>
 </Layout>

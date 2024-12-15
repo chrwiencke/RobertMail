@@ -5,6 +5,8 @@ import Layout from '../layouts/Layout.astro';
 export const prerender = false;
 
 const uuid = crypto.randomUUID();
+
+const tempEmail = uuid+"@donotshow.me"
 ---
 
 <Layout>
@@ -48,7 +50,7 @@ const uuid = crypto.randomUUID();
 	copyBtn?.addEventListener('click', async () => {
 		const email = copyBtn.getAttribute('data-email');
 		if (email) {
-			await navigator.clipboard.writeText(email);
+			await navigator.clipboard.writeText(email+"@donotshow.me");
 			toast?.classList.remove('hidden');
 			window.location.href = `/email/${email}`;
 		}
