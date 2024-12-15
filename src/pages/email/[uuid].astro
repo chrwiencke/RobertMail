@@ -8,18 +8,18 @@ const { uuid } = Astro.params;
 const tempEmail = uuid+"@donotshow.me"
 ---
 <Layout>
-    <main class="min-h-screen bg-base-200 flex items-center justify-center p-4">
+    <main class="min-h-screen bg-base-200 flex flex-col items-center justify-center p-4 gap-4">
+        <!-- Email Address -->
+        <h1 class="text-center text-lg font-bold">{tempEmail}</h1>
 
-        <h1>{tempEmail}</h1>
+        <!-- Refresh Button -->
+        <div class="refesh-htmx-button">
+            <button class="btn btn-primary" hx-get={`/api/${uuid}`} hx-trigger="click" hx-target="#email-content" hx-swap="innerHTML">
+                Refresh
+            </button>
+        </div>
 
-        <div>
-            <div class="refesh-htmx-button">
-                <button class="btn btn-primary" hx-get=`/api/${uuid}` hx-trigger="click" hx-target="#email-content" hx-swap="innerHTML">Refresh</button>
-            </div>
-        </div>
-        <div>
-            <div id="email-content"></div>
-        </div>
+        <div id="email-content" class="w-full max-w-[80%] max-h-[400px] overflow-auto border border-gray-300 p-4 bg-white rounded"></div>
 
     </main>
 </Layout>

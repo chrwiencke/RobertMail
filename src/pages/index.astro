@@ -42,19 +42,15 @@ const uuid = crypto.randomUUID();
 </Layout>
 
 <script>
-  const copyBtn = document.getElementById('copyBtn');
-  const toast = document.getElementById('toastMessage');
+	const copyBtn = document.getElementById('copyBtn');
+	const toast = document.getElementById('toastMessage');
 
-  copyBtn?.addEventListener('click', async () => {
-    const email = copyBtn.getAttribute('data-email');
-    if (email) {
-      await navigator.clipboard.writeText(email);
-      toast?.classList.remove('hidden');
-      
-      // Redirect after showing toast
-      setTimeout(() => {
-        window.location.href = `/email/${email}`;
-      }, 1000);
-    }
-  });
+	copyBtn?.addEventListener('click', async () => {
+		const email = copyBtn.getAttribute('data-email');
+		if (email) {
+			await navigator.clipboard.writeText(email);
+			toast?.classList.remove('hidden');
+			window.location.href = `/email/${email}`;
+		}
+	});
 </script>
