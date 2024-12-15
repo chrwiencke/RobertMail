@@ -24,20 +24,9 @@ const tempEmail = uuid+"@donotshow.me"
             id="copyBtn"
             data-email={uuid}
           >
-            Copy Email
-          </button>
-          <a 
-            href={`/email/${uuid}`}
-            class="btn btn-secondary"
-          >
             Use Email
-          </a>
+          </button>
         </div>
-      </div>
-    </div>
-    <div id="toast" class="toast toast-top toast-center">
-      <div class="alert alert-success hidden" id="toastMessage">
-        <span>Copied to clipboard!</span>
       </div>
     </div>
   </main>
@@ -45,13 +34,11 @@ const tempEmail = uuid+"@donotshow.me"
 
 <script>
 	const copyBtn = document.getElementById('copyBtn');
-	const toast = document.getElementById('toastMessage');
 
 	copyBtn?.addEventListener('click', async () => {
 		const email = copyBtn.getAttribute('data-email');
 		if (email) {
 			await navigator.clipboard.writeText(email+"@donotshow.me");
-			toast?.classList.remove('hidden');
 			window.location.href = `/email/${email}`;
 		}
 	});

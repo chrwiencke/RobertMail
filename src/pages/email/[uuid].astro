@@ -10,6 +10,11 @@ const tempEmail = uuid+"@donotshow.me"
 <Layout>
     <main class="min-h-screen bg-base-200 flex flex-col items-center justify-center p-4 gap-4">
 
+        <div id="toast" class="toast toast-top toast-center">
+            <div class="alert alert-success hidden" id="toastMessage">
+                <span>Copied to clipboard!</span>
+            </div>
+        </div>
         <h1 class="text-center text-lg font-bold bg-slate-500 rounded-md p-2">{tempEmail}</h1>
 
         <div class="refesh-htmx-button">
@@ -22,3 +27,13 @@ const tempEmail = uuid+"@donotshow.me"
 
     </main>
 </Layout>
+
+<script>
+    const toast = document.getElementById('toastMessage');
+    if (toast) {
+        toast.classList.remove('hidden');
+        setTimeout(() => {
+            toast.classList.add('hidden');
+        }, 1000);
+    }
+</script>
