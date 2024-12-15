@@ -9,10 +9,9 @@ const tempEmail = uuid+"@donotshow.me"
 ---
 <Layout>
     <main class="min-h-screen bg-base-200 flex flex-col items-center justify-center p-4 gap-4">
-        <!-- Email Address -->
+
         <h1 class="text-center text-lg font-bold">{tempEmail}</h1>
 
-        <!-- Refresh Button -->
         <div class="refesh-htmx-button">
             <button class="btn btn-primary" hx-get={`/api/${uuid}`} hx-trigger="click" hx-target="#email-content" hx-swap="innerHTML">
                 Refresh
