@@ -1,0 +1,60 @@
+---
+import ShowEmail from '../components/ShowEmail.astro';
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = false;
+
+const uuid = crypto.randomUUID();
+---
+
+<Layout>
+  <main class="min-h-screen bg-base-200 flex items-center justify-center p-4">
+    <div class="card w-96 bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title text-primary">Your Temporary Email</h2>
+        <div class="divider"></div>
+        <div class="bg-base-200 rounded-lg p-4">
+          <ShowEmail uuid={uuid} />
+        </div>
+        <div class="card-actions justify-end mt-4 gap-2">
+          <button
+            class="btn btn-primary"
+            id="copyBtn"
+            data-email={uuid}
+          >
+            Copy Email
+          </button>
+          <a 
+            href={`/email/${uuid}`}
+            class="btn btn-secondary"
+          >
+            Use Email
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="toast" class="toast toast-top toast-center">
+      <div class="alert alert-success hidden" id="toastMessage">
+        <span>Copied to clipboard!</span>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const copyBtn = document.getElementById('copyBtn');
+  const toast = document.getElementById('toastMessage');
+
+  copyBtn?.addEventListener('click', async () => {
+    const email = copyBtn.getAttribute('data-email');
+    if (email) {
+      await navigator.clipboard.writeText(email);
+      toast?.classList.remove('hidden');
+      
+      // Redirect after showing toast
+      setTimeout(() => {
+        window.location.href = `/email/${email}`;
+      }, 1000);
+    }
+  });
+</script>

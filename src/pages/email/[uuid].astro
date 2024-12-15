@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export const prerender = false;
+
+const { uuid } = Astro.params;
+
+const tempEmail = uuid+"@donotshow.me"
+---
+<Layout>
+    <main class="min-h-screen bg-base-200 flex items-center justify-center p-4">
+
+        <h1>{tempEmail}</h1>
+
+        <div>
+            <div class="refesh-htmx-button">
+                <button class="btn btn-primary" hx-get=`/api/${uuid}` hx-trigger="click" hx-target="#email-content" hx-swap="innerHTML">Refresh</button>
+            </div>
+        </div>
+        <div>
+            <div id="email-content"></div>
+        </div>
+
+    </main>
+</Layout>
