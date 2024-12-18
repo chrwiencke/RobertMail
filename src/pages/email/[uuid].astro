@@ -19,7 +19,12 @@ const tempEmail = uuid+"@donotshow.me"
             <h1 class="text-center text-base md:text-lg font-bold bg-slate-500 rounded-md p-3 break-all">{tempEmail}</h1>
 
             <div class="my-4 text-center">
-                <button class="btn btn-primary" hx-get={`/api/${uuid}`} hx-trigger="click" hx-target="#email-content" hx-swap="innerHTML">
+                <button 
+                    class="btn btn-primary" 
+                    hx-get={`/api/${uuid}`} 
+                    hx-trigger="click, every 5s"
+                    hx-target="#email-content" 
+                    hx-swap="innerHTML">
                     Refresh
                 </button>
                 <button
