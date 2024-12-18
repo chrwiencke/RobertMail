@@ -17,7 +17,6 @@ const tempEmail = uuid+"@donotshow.me"
         
         <div class="w-full max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto">
             <h1 class="text-center text-base md:text-lg font-bold bg-slate-500 rounded-md p-3 break-all">{tempEmail}</h1>
-
             <div class="my-4 text-center">
                 <button 
                     class="btn btn-primary" 
@@ -28,14 +27,33 @@ const tempEmail = uuid+"@donotshow.me"
                     Refresh
                 </button>
                 <button
-                class="btn btn-primary"
-                id="copyBtn"
-                data-email={tempEmail}>
-                Copy
+                    class="btn btn-primary"
+                    id="copyBtn"
+                    data-email={tempEmail}>
+                    Copy
                 </button>
             </div>
 
-            <div id="email-content" class="w-full"></div>
+            <div id="email-content" class="w-full ">
+                <div class="mt-2 text-sm opacity-50 text-center">
+                    Refreshes: <span id="refreshCount">0</span>
+                </div>
+
+            </div>
+
+            <script>
+                let refreshCount = 0;
+                document.body.addEventListener('htmx:afterRequest', function(evt) {
+                    if (evt.detail.target.id === 'email-content') {
+                        refreshCount++;
+                        const refreshElement = document.getElementById('refreshCount');
+                        if (refreshElement) {
+                            refreshElement.textContent = refreshCount.toString();
+                        }
+                    }
+                });
+            </script>
+            </div>
         </div>
     </main>
 </Layout>
