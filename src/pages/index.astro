@@ -1,11 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-export const prerender = false;
-
-const uuid = crypto.randomUUID();
-
-const tempEmail = uuid+"@donotshow.me"
+export const prerender = true;
 ---
 
 <Layout>
@@ -15,13 +11,12 @@ const tempEmail = uuid+"@donotshow.me"
         <h2 class="card-title text-primary">Your Temporary Email</h2>
         <div class="divider"></div>
         <div class="bg-base-200 rounded-lg p-4">
-          <p class="break-all md:break-normal overflow-wrap-anywhere">{tempEmail}</p>
+          <p class="break-all md:break-normal overflow-wrap-anywhere" id="emailDisplay"></p>
         </div>
         <div class="card-actions justify-end mt-4 gap-2">
           <button
             class="btn btn-primary"
             id="copyBtn"
-            data-email={uuid}
           >
             Use Email
           </button>
@@ -33,12 +28,17 @@ const tempEmail = uuid+"@donotshow.me"
 
 <script>
 	const copyBtn = document.getElementById('copyBtn');
+	const emailDisplay = document.getElementById('emailDisplay');
+	
+	const uuid = crypto.randomUUID();
+	const tempEmail = uuid + "@donotshow.me";
+	
+	if (emailDisplay) {
+		emailDisplay.textContent = tempEmail;
+	}
 
 	copyBtn?.addEventListener('click', async () => {
-		const email = copyBtn.getAttribute('data-email');
-		if (email) {
-			await navigator.clipboard.writeText(email+"@donotshow.me");
-			window.location.href = `/email/${email}`;
-		}
+		await navigator.clipboard.writeText(tempEmail);
+		window.location.href = `/email/${uuid}`;
 	});
 </script>
