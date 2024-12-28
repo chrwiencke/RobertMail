@@ -4,29 +4,42 @@ import Layout from '../layouts/Layout.astro';
 export const prerender = true;
 ---
 
-<Layout showHomeButton={false}>
+<Layout 
+  showHomeButton={false}
+  description="Create disposable email addresses instantly. Protect your privacy, avoid spam, and stay secure online. No registration required. Free temporary email service."
+>
   <main class="min-h-screen bg-base-200 flex items-center justify-center p-4">
     <div class="card w-96 bg-base-100 shadow-xl">
       <div class="card-body">
         <header>
-          <h1 class="card-title text-primary">Generate Temporary Email</h1>
+          <h1 class="card-title text-primary text-xl mb-4">Generate Temporary Email</h1>
         </header>
-        <div class="divider"></div>
-        <section aria-label="Email display">
+        
+        <section aria-label="Email display" class="my-2">
           <h2 class="sr-only">Your temporary email address</h2>
-          <div class="bg-base-200 rounded-lg p-4">
-            <p class="break-all md:break-normal overflow-wrap-anywhere" id="emailDisplay"></p>
+          <div class="bg-base-200 rounded-lg p-4 border-2 border-base-300">
+            <p class="break-all md:break-normal overflow-wrap-anywhere text-lg font-medium" id="emailDisplay"></p>
           </div>
         </section>
-        <div class="card-actions justify-end mt-4 gap-2">
+
+        <div class="card-actions justify-center mt-6 mb-2">
           <button
-            class="btn btn-primary"
+            class="btn btn-primary btn-lg w-full"
             id="copyBtn"
             aria-label="Copy email and proceed to inbox"
           >
             Use Email
           </button>
         </div>
+
+        <div class="divider my-1"></div>
+
+        <footer class="opacity-50 text-xs space-y-4">
+          <div class="">
+            <p>Emails automatically delete after 1 hour. No registration needed.</p>
+            <p>Your privacy is our priority - we don't store any personal data.</p>
+          </div>
+        </footer>
       </div>
     </div>
   </main>

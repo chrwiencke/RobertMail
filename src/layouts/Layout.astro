@@ -5,12 +5,14 @@ interface Props {
 	title?: string;
 	description?: string;
 	showHomeButton?: boolean;
+	canonicalUrl?: string;
 }
 
 const { 
 	title = "Temporary Email Generator - Fast, Secure & Private | Do not show me",
 	description = "Generate secure, disposable email addresses instantly. Perfect for testing, privacy protection, and avoiding spam. Free, no registration required.",
-	showHomeButton = true
+	showHomeButton = true,
+	canonicalUrl = new URL(Astro.url.pathname, 'https://donotshow.me').toString()
 } = Astro.props;
 ---
 
@@ -38,7 +40,7 @@ const {
 		
 		<!-- Other important meta tags -->
 		<meta name="robots" content="index, follow" />
-		<link rel="canonical" href={Astro.url} />
+		<link rel="canonical" href={canonicalUrl} />
 		
 		<!-- Additional SEO meta tags -->
 		<meta name="keywords" content="temporary email, disposable email, fake email, email generator, privacy, anti-spam" />
@@ -75,6 +77,8 @@ const {
 			"browserRequirements": "Requires JavaScript"
 		})}>
 		</script>
+		<!-- Ensure HTTPS -->
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 	</head>
 	<body>
 		{showHomeButton && <HomeButton />}

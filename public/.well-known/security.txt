@@ -1,0 +1,4 @@
+Contact: mailto:security@donotshow.me
+Expires: 2024-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://donotshow.me/.well-known/security.txt
