@@ -13,13 +13,13 @@ export const GET: APIRoute = async () => {
         <priority>1.0</priority>
       </url>
       <url>
-        <loc>https://donotshow.me/privacy-policy</loc>
+        <loc>https://donotshow.me/privacy-policy/</loc>
         <lastmod>${new Date().toISOString()}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
       </url>
       <url>
-        <loc>https://donotshow.me/terms</loc>
+        <loc>https://donotshow.me/terms/</loc>
         <lastmod>${new Date().toISOString()}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
