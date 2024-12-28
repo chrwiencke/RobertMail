@@ -1,3 +1,15 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "Temporary Email Generator - Fast, Secure & Private | Do not show me",
+	description = "Generate secure, disposable email addresses instantly. Perfect for testing, privacy protection, and avoiding spam. Free, no registration required."
+} = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,9 +17,60 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Do not show me</title>
+		
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		
+		<!-- OpenGraph tags -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		
+		<!-- Twitter Card tags -->
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		
+		<!-- Other important meta tags -->
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href={Astro.url} />
+		
+		<!-- Additional SEO meta tags -->
+		<meta name="keywords" content="temporary email, disposable email, fake email, email generator, privacy, anti-spam" />
+		<meta name="author" content="Do not show me" />
+		
+		<!-- Enhanced social media tags -->
+		<meta property="og:site_name" content="Do not show me" />
+		<meta property="og:image" content={new URL('/og-image.jpg', Astro.url)} />
+		<meta name="twitter:image" content={new URL('/og-image.jpg', Astro.url)} />
+		
 		<link rel="stylesheet" href="/styles.css">
 		<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+
+		<!-- JSON-LD structured data -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "WebApplication",
+			"name": "Temporary Email Generator",
+			"description": description,
+			"url": Astro.url.toString(),
+			"applicationCategory": "UtilityApplication",
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "USD"
+			},
+			"featureList": [
+				"Instant email generation",
+				"No registration required",
+				"Secure and private",
+				"Free to use"
+			],
+			"operatingSystem": "All",
+			"browserRequirements": "Requires JavaScript"
+		})}>
+		</script>
 	</head>
 	<body>
 		<slot />

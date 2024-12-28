@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://donotshow.me/sitemap.xml

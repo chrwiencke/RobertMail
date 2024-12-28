@@ -8,15 +8,21 @@ export const prerender = true;
   <main class="min-h-screen bg-base-200 flex items-center justify-center p-4">
     <div class="card w-96 bg-base-100 shadow-xl">
       <div class="card-body">
-        <h2 class="card-title text-primary">Your Temporary Email</h2>
+        <header>
+          <h1 class="card-title text-primary">Generate Temporary Email</h1>
+        </header>
         <div class="divider"></div>
-        <div class="bg-base-200 rounded-lg p-4">
-          <p class="break-all md:break-normal overflow-wrap-anywhere" id="emailDisplay"></p>
-        </div>
+        <section aria-label="Email display">
+          <h2 class="sr-only">Your temporary email address</h2>
+          <div class="bg-base-200 rounded-lg p-4">
+            <p class="break-all md:break-normal overflow-wrap-anywhere" id="emailDisplay"></p>
+          </div>
+        </section>
         <div class="card-actions justify-end mt-4 gap-2">
           <button
             class="btn btn-primary"
             id="copyBtn"
+            aria-label="Copy email and proceed to inbox"
           >
             Use Email
           </button>
