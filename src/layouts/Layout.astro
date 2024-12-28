@@ -14,6 +14,9 @@ const {
 	showHomeButton = true,
 	canonicalUrl = new URL(Astro.url.pathname, 'https://donotshow.me').toString()
 } = Astro.props;
+
+const siteUrl = 'https://donotshow.me';
+const currentUrl = new URL(Astro.url.pathname, siteUrl).toString();
 ---
 
 <!doctype html>
@@ -31,7 +34,8 @@ const {
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content={Astro.url} />
+		<meta property="og:url" content={currentUrl} />
+		<meta property="og:site_name" content="Do not show me" />
 		
 		<!-- Twitter Card tags -->
 		<meta name="twitter:card" content="summary" />
@@ -45,11 +49,6 @@ const {
 		<!-- Additional SEO meta tags -->
 		<meta name="keywords" content="temporary email, disposable email, fake email, email generator, privacy, anti-spam" />
 		<meta name="author" content="Do not show me" />
-		
-		<!-- Enhanced social media tags -->
-		<meta property="og:site_name" content="Do not show me" />
-		<meta property="og:image" content={new URL('/og-image.jpg', Astro.url)} />
-		<meta name="twitter:image" content={new URL('/og-image.jpg', Astro.url)} />
 		
 		<link rel="stylesheet" href="/styles.css">
 		<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
