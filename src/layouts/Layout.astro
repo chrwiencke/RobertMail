@@ -20,7 +20,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).toString();
 ---
 
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -30,30 +30,25 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).toString();
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		
-		<!-- OpenGraph tags -->
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={currentUrl} />
 		<meta property="og:site_name" content="Do not show me" />
 		
-		<!-- Twitter Card tags -->
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		
-		<!-- Other important meta tags -->
 		<meta name="robots" content="index, follow" />
 		<link rel="canonical" href={canonicalUrl} />
 		
-		<!-- Additional SEO meta tags -->
 		<meta name="keywords" content="temporary email, disposable email, fake email, email generator, privacy, anti-spam" />
 		<meta name="author" content="Do not show me" />
 		
 		<link rel="stylesheet" href="/styles.css">
 		<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
 
-		<!-- JSON-LD structured data -->
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "WebApplication",
@@ -76,7 +71,6 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).toString();
 			"browserRequirements": "Requires JavaScript"
 		})}>
 		</script>
-		<!-- Ensure HTTPS -->
 		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 	</head>
 	<body>
@@ -84,10 +78,8 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).toString();
 		<slot />
 		<footer class="footer p-4 bg-base-300 text-base-content">
 			<div class="w-full flex justify-between items-center">
-				{/* Left spacer */}
 				<div class="w-14"></div>
 				
-				{/* Centered links */}
 				<nav class="flex-1 flex justify-center">
 					<ul class="flex gap-4 text-sm items-center flex-wrap justify-center">
 						<li><a href="https://short.pludo.org/" rel="noopener noreferrer" target="_blank">Short URL</a></li>
@@ -98,7 +90,6 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).toString();
 					</ul>
 				</nav>
 				
-				{/* Right theme toggle */}
 				<div class="w-14 flex justify-end">
 					<label class="swap swap-rotate">
 						<input type="checkbox" class="theme-controller" data-toggle-theme="dark,light" data-act-class="ACTIVECLASS"/>
