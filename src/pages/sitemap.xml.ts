@@ -12,6 +12,18 @@ export const GET: APIRoute = async () => {
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
       </url>
+      <url>
+        <loc>https://donotshow.me/privacy-policy</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://donotshow.me/terms</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+      </url>
     </urlset>`,
     {
       headers: {

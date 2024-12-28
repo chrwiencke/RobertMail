@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const lastUpdated = new Date().toISOString().split('T')[0];
+---
+
+<Layout title="Privacy Policy - Temporary Email Generator" description="Privacy Policy for Do Not Show Me temporary email service">
+	<main class="min-h-screen bg-base-200 p-4 md:p-8">
+		<article class="prose prose-sm md:prose-base max-w-3xl mx-auto bg-base-100 p-6 md:p-8 rounded-xl shadow-xl">
+			<h1>Privacy Policy</h1>
+			<p>Last updated: {lastUpdated}</p>
+
+			<h2>1. Introduction</h2>
+			<p>At Do Not Show Me ("we", "our", or "us"), we prioritize your privacy and are committed to protecting your personal data. This privacy policy explains how we handle information when you use our temporary email service.</p>
+
+			<h2>2. Data Collection and Usage</h2>
+			<h3>2.1 Analytics</h3>
+			<p>We use Cloudflare Web Analytics to collect anonymous usage statistics. This analytics service is privacy-friendly and does not track individual users or use cookies for tracking purposes.</p>
+
+			<h3>2.2 Email Data</h3>
+			<ul>
+				<li>Generated email addresses are not stored until they receive an email</li>
+				<li>When an email is received, both the email address and its content are stored temporarily</li>
+				<li>All stored data is automatically deleted after 1 hour</li>
+				<li>We do not scan emails for content, malware, or spam</li>
+			</ul>
+
+			<h2>3. Data Storage and Security</h2>
+			<p>All data is processed and stored on Cloudflare's infrastructure:</p>
+			<ul></ul>
+				<li>Emails are processed through Cloudflare Workers</li>
+				<li>Temporary storage uses Cloudflare KV</li>
+				<li>All data is automatically purged after 1 hour</li>
+			</ul>
+
+			<h2>4. IP Addresses and Logs</h2>
+			<p>We do not actively collect or store IP addresses. However, Cloudflare's infrastructure may log IP addresses as part of their standard operation and security measures.</p>
+			
+			<h3>4.1 Rate Limiting</h3>
+			<p>To prevent abuse and ensure service stability, we implement rate limiting through Cloudflare's infrastructure:</p>
+			<ul>
+				<li>Inbox refresh requests are limited to 5 requests per 10 seconds per IP address</li>
+				<li>These limits are enforced using Cloudflare's IP-based rate limiting</li>
+				<li>IP addresses are only used for rate limiting purposes and are not stored permanently</li>
+			</ul>
+
+			<h2>5. Cookies</h2>
+			<p>We do not use any first-party cookies. Any cookies present are those required by Cloudflare's infrastructure for security and operational purposes.</p>
+
+			<h2>6. Third-Party Services</h2>
+			<p>We use Cloudflare for:</p>
+			<ul>
+				<li>Web hosting</li>
+				<li>DNS management</li>
+				<li>Email processing</li>
+				<li>Data storage</li>
+				<li>Analytics</li>
+			</ul>
+
+			<h2>7. Data Retention</h2>
+			<p>All email data is automatically deleted after 1 hour. We do not maintain backups or archives of emails or email addresses.</p>
+
+			<h2>8. User Rights</h2>
+			<p>You have the right to:</p>
+			<ul>
+				<li>Access information about your data</li>
+				<li>Request information about stored data</li>
+				<li>Request data deletion (though data is automatically deleted after 1 hour)</li>
+			</ul>
+
+			<h2>9. Contact Information</h2>
+			<p>For privacy-related concerns, please contact: <a href="mailto:privacy@donotshow.me">privacy@donotshow.me</a></p>
+
+			<h2>10. Jurisdiction</h2>
+			<p>This service is created in Norway and operates on Cloudflare's global infrastructure. Users should be aware that data may be processed in various locations worldwide as part of Cloudflare's services.</p>
+
+			<h2>11. Changes to This Policy</h2>
+			<p>We reserve the right to update this privacy policy at any time. Changes will be effective immediately upon posting to the website.</p>
+		</article>
+	</main>
+</Layout>

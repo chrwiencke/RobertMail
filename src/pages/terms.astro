@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const lastUpdated = new Date().toISOString().split('T')[0];
+---
+
+<Layout title="Terms of Service - Temporary Email Generator" description="Terms of Service for Do Not Show Me temporary email service">
+	<main class="min-h-screen bg-base-200 p-4 md:p-8">
+		<article class="prose prose-sm md:prose-base max-w-3xl mx-auto bg-base-100 p-6 md:p-8 rounded-xl shadow-xl">
+			<h1>Terms of Service</h1>
+			<p>Last updated: {lastUpdated}</p>
+
+			<h2>1. Agreement to Terms</h2>
+			<p>By accessing or using donotshow.me ("Service"), you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you do not have permission to access the Service.</p>
+
+			<h2>2. Usage Restrictions</h2>
+			<h3>2.1 Rate Limits</h3>
+			<p>The Service implements a rate limit of 5 requests per 10 seconds per IP address for inbox refreshes. Attempts to circumvent these limits are prohibited.</p>
+
+			<h3>2.2 Prohibited Activities</h3>
+			<p>The following activities are strictly prohibited:</p>
+			<ul>
+				<li>Any illegal activities or content</li>
+				<li>Spamming or automated abuse of the API</li>
+				<li>DDoS attacks or excessive request volumes</li>
+				<li>Receiving or distributing illegal content</li>
+				<li>Using the service to violate any third-party terms of service</li>
+				<li>Attempting to compromise or damage the service</li>
+				<li>Reverse engineering the service</li>
+				<li>Reselling or redistributing the service</li>
+			</ul>
+
+			<h2>3. Service Availability</h2>
+			<p>The Service is provided "as is" without any guarantees of uptime or availability. We reserve the right to:</p>
+			<ul>
+				<li>Modify or terminate the service for any reason</li>
+				<li>Terminate access to any user for any reason</li>
+				<li>Delete any content at any time</li>
+				<li>Change these terms at any time without notice</li>
+			</ul>
+
+			<h2>4. Age Restrictions</h2>
+			<p>You must be at least 18 years old to use this Service. By using the Service, you represent and warrant that you are at least 18 years old.</p>
+
+			<h2>5. User Responsibility</h2>
+			<p>Users are solely responsible for:</p>
+			<ul>
+				<li>Any content received through the Service</li>
+				<li>Compliance with all applicable laws</li>
+				<li>Reporting illegal or abusive content</li>
+				<li>Any consequences resulting from service misuse</li>
+			</ul>
+
+			<h2>6. Intellectual Property</h2>
+			<p>We respect intellectual property rights and expect users to do the same. For DMCA/copyright notices, contact: <a href="mailto:contact@donotshow.me">contact@donotshow.me</a></p>
+
+			<h2>7. Disclaimer of Warranties</h2>
+			<p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT ANY WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. WE DO NOT GUARANTEE THE ACCURACY, COMPLETENESS, OR USEFULNESS OF THE SERVICE.</p>
+
+			<h2>8. Limitation of Liability</h2>
+			<p>IN NO EVENT SHALL WE BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES.</p>
+
+			<h2>9. Governing Law</h2>
+			<p>These Terms shall be governed by the laws of Norway, without regard to its conflict of law provisions.</p>
+
+			<h2>10. Changes to Terms</h2>
+			<p>We reserve the right to modify these terms at any time without notice. Continued use of the Service constitutes acceptance of the modified terms.</p>
+
+			<h2>11. Contact</h2>
+			<p>For any questions about these Terms, please contact: <a href="mailto:contact@donotshow.me">contact@donotshow.me</a></p>
+		</article>
+	</main>
+</Layout>
