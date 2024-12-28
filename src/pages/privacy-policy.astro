@@ -42,7 +42,7 @@ const lastUpdated = new Date().toISOString().split('T')[0];
 			<h3>4.1 Rate Limiting</h3>
 			<p>To prevent abuse and ensure service stability, we implement rate limiting through Cloudflare's infrastructure:</p>
 			<ul>
-				<li>Inbox refresh requests are limited to 5 requests per 10 seconds per IP address</li>
+				<li>Inbox refresh requests are limited to 10 requests per 10 seconds per IP address</li>
 				<li>These limits are enforced using Cloudflare's IP-based rate limiting</li>
 				<li>IP addresses are only used for rate limiting purposes and are not stored permanently</li>
 			</ul>
