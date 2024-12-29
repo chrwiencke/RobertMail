@@ -1,0 +1,24 @@
+name: Run Lighthouse on Cloudflare Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Wait for Cloudflare Pages preview
+      run: |
+        sleep 120 # Adjust this sleep time based on how long it takes for Cloudflare to generate the preview
+        
+    - name: Run Lighthouse
+      uses: treosh/lighthouse-ci-action@v8
+      with:
+        urls: https://testing.robertmail.pages.dev
+        configPath: ./lighthouserc.json # Optional: provide a Lighthouse config file
+        uploadArtifacts: true
+        temporaryPublicStorage: true
