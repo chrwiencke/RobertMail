@@ -1,0 +1,32 @@
+name: Run Lighthouse on Cloudflare Preview
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'testing/**'
+
+jobs:
+  lighthouse:
+    if: github.base_ref == 'main' && github.head_ref == 'testing'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: sudo apt-get install -y libnss3 libxss1 libasound2 libatk-bridge2.0-0 libgtk-3-0
+
+    - name: Wait for Cloudflare Pages preview
+      run: |
+        sleep 20
+        
+    - name: Run Lighthouse
+      uses: treosh/lighthouse-ci-action@v8
+      with:
+        urls: https://testing.robertmail.pages.dev
+        configPath: ./lighthouserc.json # Optional: provide a Lighthouse config file
+        uploadArtifacts: true
+        temporaryPublicStorage: true
