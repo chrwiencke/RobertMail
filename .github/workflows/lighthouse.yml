@@ -13,7 +13,7 @@ jobs:
 
     - name: Wait for Cloudflare Pages preview
       run: |
-        sleep 120 # Adjust this sleep time based on how long it takes for Cloudflare to generate the preview
+        sleep 30
         
     - name: Run Lighthouse
       uses: treosh/lighthouse-ci-action@v8
